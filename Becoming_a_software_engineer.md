@@ -2,7 +2,7 @@
 
 Embarking on a career as a software engineer can be a daunting journey, especially when faced with challenges such as imposter syndrome and limited experience. In this article, we'll explore the story of one individual's pursuit of landing a job as a software engineer, highlighting the strategies, experiences, and lessons learned along the way. Through consistent efforts, determination, and a passion for continuous learning, this individual overcame obstacles to fulfill their aspirations.
 
-###The journey began as a student in the Philippines, where the individual grappled with the desire to break into the competitive field of software engineering in the United States. Despite harboring imposter syndrome and comparing themselves to peers, they recognized the importance of self-awareness and channeled it into working harder than ever before.
+The journey began as a student in the Philippines, where the individual grappled with the desire to break into the competitive field of software engineering in the United States. Despite harboring imposter syndrome and comparing themselves to peers, they recognized the importance of self-awareness and channeled it into working harder than ever before.
 
 While good grades can play a role in securing a first job, other factors like experience and projects are equally important. Utilizing school breaks, the individual embarked on creating projects with diverse languages and stacks, ranging from Django to MERN and Java. By incorporating personal interests such as Twitter, restaurants, and films, they honed their skills and demonstrated their passion through practical applications.
 
