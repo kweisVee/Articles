@@ -31,11 +31,11 @@ FROM employees e
 JOIN departments d ON e.department_id = d.department_id;
 ```
 
-Materialized views could be used for this scenarios as we don't hire and let go of employees in a daily basis, unless you have an unstable company which means you need to do something quick! But, there will always be situations wherein we will be hiring more employees and we'll let go of some this leads to changing the employees table from which we are selecting from. Then, how do we update our own materialized views?
+Materialized views could be used for this scenario as we don't hire and let go of employees in a daily basis, unless you have an unstable company which means you need to do something quick! But, there will always be situations wherein we will be hiring more employees and we'll let go of some. This then leads to changing the `employees` table from which we are selecting from. So, how do we update our own materialized views?
 
 ### Refreshing materialized views
 
-Refreshing a materialized view is essential when you want to update a materialized view when changes have been made to its underlying table. For example, we will be hiring two more employees for two different departments. So if we initially run,
+Refreshing a materialized view is essential when you want to update a materialized view once changes have been made to its underlying tables or data. For example, we will be hiring two more employees for two different departments. So if we initially run,
 
 ```
 SELECT COUNT(*) FROM employee_details;
@@ -49,11 +49,11 @@ But upon checking the number of employees we have within the database after addi
 SELECT COUNT(*) FROM employees;
 ```
 
-It returns 72 which is the actual number of employees within the company.
+It returns 72 which is the actual number of employees within the company at present.
 
 #### Types of refreshes
 
-We can refresh a materialized view in three different ways:
+To update the `employee_details` we must need to refresh it, and this can be done in three different ways:
 
 -   COMPLETE -
     This creates the materialized view straight from scratch by dropping all the contents within the materialized view, and reruning the query all over again in order to repopulate the materialized view with the right data. This however, can reduce efficiency as it will be slow most especially when working with large databases.
@@ -77,7 +77,7 @@ EXCEPTION
 END;
 ```
 
-But this is not ideal, as we won't know the exact time to refresh these materialized views. This is where the ON COMMIT keyword comes in and is used if we want the materialized view to be refreshed every time changes are made to its underlying tables or data. The materialized view is then refreshed once the changes have been **committed**. This is most useful as we want to our materialized views to up-to-date to the latest changes made within our database. An example below is how to create a materialized view and performs a FAST refresh whenever new employee data has been committed to the `employees` table:
+But this is not ideal, as we won't know the exact time that we need to refresh these materialized views. This is where the`ON COMMIT` keyword comes in and is used if we want the materialized view to be refreshed every time changes are made to its underlying tables or data. The materialized view is then refreshed once the changes have been **committed**. This is most useful as we want to our materialized views to be up-to-date with the latest changes made within our database. An example below is how to create a materialized view and performs a FAST refresh whenever new employee data has been committed to the `employees` table:
 
 ```
 CREATE MATERIALIZED VIEW employee_details
