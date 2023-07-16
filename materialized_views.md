@@ -1,4 +1,4 @@
-# Materialized Views? What are they?
+# What are Materialized Views?
 
 I have come across materialized views for the first time at my job. This was something that was never discussed in school as my courses covering databases just simply focused on creating tables, deleting tables, adding data, and my ever-so-favorite JOINS. However, there are yet more concepts that we have to discover which could eventually help the efficiency on how we use these databases, and learning about them is a great way to start.
 
