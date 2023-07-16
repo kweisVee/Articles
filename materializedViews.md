@@ -4,7 +4,7 @@ I have come across materialized views for the first time at my job. This was som
 
 ### First, what are views?
 
-Before I rush to the definition of materialized views, we first will discuss the definition of a VIEW. Views are virtual tables that aren't stored in any disk hence, it doesn't occupy any type of memory which will eventually have zero costs. When accessing data from a VIEW, the time complexity depends on the efficiency of the underlying query. If the query involves multiple JOIN statements, it's better to avoid using a view since it will execute the query each time the view is accessed. Instead, views are most suitable for infrequently accessed data. Here is an example of creating a view that displays the order details of a specific order:
+Before I rush to the definition of materialized views, let us discuss the definition of a VIEW. Views are virtual tables that aren't stored in any disk hence, it doesn't occupy any type of memory which will eventually have zero costs. When accessing data from a VIEW, the time complexity depends on the efficiency of the underlying query. If the query involves multiple JOIN statements, it's better to avoid using a view since it will execute the query each time the view is accessed. Instead, views are most suitable for infrequently accessed data. Here is an example of creating a view that displays the order details of a specific order:
 
 ```
 CREATE OR REPLACE VIEW order_details AS
@@ -15,6 +15,8 @@ WHERE o.order_id = order_id;
 ```
 
 Views are best used for this query as we might need to access an order detail during packing and delivery, and once it's successfully delivered, we rarely need to access this type of information.
+
+But why do we use views instead of just simply querying them? To start, some queries such as the one above can be complex which allows us to have a single, and easy-to-understand object. Then, it also improves data security because users won't be able to access schemas within the database but can instead access these views which consist of data that we have control of choosing. This can further be enhanced by using GRANTS which is a keyword that can be utilized in granting permissions on who can access the views and tables that you have within the database.
 
 Here's a small tip: if you really want to make use of views but queries that you may have used seem to be complicated, it would be best to use indexed foreign keys most especially when using JOINS. Also, one could consider caching these views avoid repeated computation.
 
