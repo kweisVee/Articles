@@ -53,11 +53,11 @@ It returns 72 which is the actual number of employees within the company.
 
 We can refresh a materialized view in three different ways:
 
--   COMPLETE
+-   COMPLETE -
     This creates the materialized view straight from scratch by dropping all the contents within the materialized view, and reruning the query all over again in order to repopulate the materialized view with the right data. This however, can reduce efficiency as it will be slow most especially when working with large databases.
--   FAST
+-   FAST -
     This only updates the rows in the materialized view that have changed based on the last refresh. This can be found through the materialized view logs provided by Oracle that store information about the changes that were made to the base tables. When a fast refresh has been requested, the materialized view logs is accessed in order to identify the rows that have been inserted, updated or deleted.
--   FORCE
+-   FORCE -
     This performs a FAST refresh on the materialized view if possible but will perform a COMPLETE refresh if needed based on the nature of the data or the query.
 
 For Oracle, we can instantly refresh a materialized view with the use of `DBMS_MVIEW.REFRESH()` to refresh a materialized view on demand. It accepts two parameters - _list_ which is the name of the materialized view, and _method_ to specify what type of refresh we want to perform. An example below is how we can perform a COMPLETE refresh on the `employee_details` materialized view:
