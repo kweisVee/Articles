@@ -34,10 +34,10 @@ A code block below shows how we can add a specific dependency to our `pom.xml` f
 
 ```
 <dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
 </dependencies>
 ```
 
